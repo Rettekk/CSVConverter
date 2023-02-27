@@ -44,15 +44,7 @@ public class main {
         JButton btnChangetoExcel = new JButton("CSV-Datei in Excel-Datei umwandeln");
         JButton btnCompareCSV = new JButton("Zusammenfügen von CSV-Dateien");
         JButton btnBothButtons = new JButton("Erst zusammenfügen, dann umwandeln.");
-        btnChangetoExcel.addActionListener(e -> convertToExcel());
-        btnCompareCSV.addActionListener(e -> {
-            fileChooser.setMultiSelectionEnabled(true);
-            compareCSVFiles();
-        });
-        btnBothButtons.addActionListener(e -> {
-            fileChooser.setMultiSelectionEnabled(true);
-            compareBoth();
-        });
+        JButton btnCompareAndSelectRows = new JButton("Zusammenfügen und Zeilen auswählen");
         panel.add(btnChangetoExcel);
         panel.add(btnCompareCSV);
         panel.add(btnBothButtons);
@@ -62,6 +54,27 @@ public class main {
         fileChooser.setMultiSelectionEnabled(false);
         fileChooser.setCurrentDirectory(new File(System.getProperty("user.home") + "/Documents"));
         fileChooser.setFileFilter(new FileNameExtensionFilter("CSV files", "csv"));
+
+        btnChangetoExcel.addActionListener(e -> convertToExcel());
+        btnCompareCSV.addActionListener(e -> {
+            fileChooser.setMultiSelectionEnabled(true);
+            compareCSVFiles();
+        });
+        btnBothButtons.addActionListener(e -> {
+            fileChooser.setMultiSelectionEnabled(true);
+            compareBoth();
+        });
+
+        btnCompareAndSelectRows.addActionListener(e -> {
+            fileChooser.setMultiSelectionEnabled(true);
+            compareAndSelectRows();
+        });
+
+
+    }
+
+    private void compareAndSelectRows() {
+
     }
 
     private void compareBoth() {
